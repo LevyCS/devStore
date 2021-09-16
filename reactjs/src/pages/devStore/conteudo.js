@@ -107,6 +107,7 @@ export default function Conteudo() {
                     await api.deletarProduto(id)
                     toast.dark('Produto excluido')
                     loading.current.complete();
+                    carregarProdutos()
                 } 
               },
               {
@@ -114,7 +115,6 @@ export default function Conteudo() {
               }
             ]
         });
-        carregarProdutos()
     };
 
     const loading = useRef();
@@ -208,7 +208,7 @@ export default function Conteudo() {
                                         : item.nm_produto} 
                                     </td>
                                     <td> {item.ds_categoria} </td>
-                                    <td> {item.vl_preco_por} </td>
+                                    <td> R$ {item.vl_preco_por} </td>
                                     <td> {item.qtd_estoque} </td>
                                     <td className="img"> <button> <img src="/src/assets/images/alterar.png" alt=""
                                         onClick={() => alterarProduto(item)} 
